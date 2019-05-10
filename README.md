@@ -1,2 +1,2 @@
 
-Just trying out Ruby on Rails.git
+Just trying out Ruby on Rails 
