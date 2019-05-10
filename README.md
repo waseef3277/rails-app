@@ -1,3 +1,3 @@
 # README
 
-Just trying out Ruby on Rails.
+Just trying out Ruby on Rails.git
