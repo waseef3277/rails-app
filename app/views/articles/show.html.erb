@@ -1,0 +1,12 @@
+<h3> This is Article with id: <%= @article.id %>  </h3>
+
+<h2> Title: <%= @article.title %> </h2>
+<h2> Description: <h2>
+<p> <%= @article.description %> </p>
+
+<br>
+<br>
+
+<%= link_to "Back to List", articles_path %>
+
+<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
