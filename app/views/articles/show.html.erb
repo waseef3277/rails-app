@@ -1,12 +1,17 @@
-<h3> This is Article with id: <%= @article.id %>  </h3>
+<div class="container">
 
-<h2> Title: <%= @article.title %> </h2>
-<h2> Description: <h2>
-<p> <%= @article.description %> </p>
+	<div class="alert my-5" id="article_panel">
 
-<br>
-<br>
+		<h2 class="display-4 text-center"> <%= @article.title %> </h2>
+		<hr>
+		<p class="lead"> <%= @article.description %>  </p>
 
-<%= link_to "Back to List", articles_path %>
+	</div>
 
-<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %>
+	<%= link_to "Back to List", articles_path, class: "btn", id: "article_button" %>
+
+	<%= link_to "Edit", edit_article_path(@article), class: "btn", id: "article_button" %>
+
+	<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn", id: "article_button" %>
+
+</div>

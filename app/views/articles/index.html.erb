@@ -1,23 +1,29 @@
-<h2> Listing All Articles </h2>
-<div>
-    <%= link_to "Create New Article", new_article_path %>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th> Title </th>
-            <th> Description </th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @articles.each do |article| %>
+<div class="container">
+    <div>
+        <%= link_to "Create New Article", new_article_path, class: "btn my-3", id: "article_button" %>
+    </div>
+    <table class="table mt-2">
+        <thead id="articles_table_head">
             <tr>
-                <td> <%= article.title %> </td>
-                <td> <%= article.description %> </td>
-                <td> <%= link_to "Show", article_path(article) %>
-                <td> <%= link_to "Edit", edit_article_path(article) %>
-                <td> <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %>
+                <th scope="col"> Title </th>
+                <th scope="col"> Description </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
             </tr>
-        <% end %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @articles.each do |article| %>
+                <tr>
+                    <td> <%= article.title %> </td>
+                    <td> <%= article.description %> </td>
+                    <td> <%= link_to "Show", article_path(article), class: "btn btn-success btn-sm" %>
+                    <td> <%= link_to "Edit", edit_article_path(article), class: "btn btn-info btn-sm" %>
+                    <td> <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+
