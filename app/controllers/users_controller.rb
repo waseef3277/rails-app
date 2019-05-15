@@ -20,8 +20,11 @@ class UsersController < ApplicationController
 
 	def update
 		@user = User.find(params[:id])
-		if @user.update(user_params)
-			flash[:notice] = "Account updated successfully"
+		if !@user.authenticate(params[:user][:old_password])
+			flash[:notice] = "Old Password does not match"
+			render 'edit'
+		elsif @user.update(user_params)
+			flash[:notice] = "Password changed successfully"
 			redirect_to articles_path
 		else
 			render 'edit'
