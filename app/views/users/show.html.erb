@@ -3,7 +3,7 @@
 	<h1 class="display-4 text-center mt-2 mb-5"> <%= @user.username %> </h1>
 	<hr>
 	<% if @user.articles.any? %>
-	<% @user.articles.each do |article| %>
+	<% @user_articles.each do |article| %>
 	    <div class="alert my-5" id="article_panel">
 	        <h1 class="display-4"> <%= article.title %> </h1>
 	        <p class="lead"> <%= truncate(article.description, length: 300) %> </p>
@@ -32,6 +32,10 @@
 	<%else%>
 		<h1 class="display-4 text-center my-5"> No posts by <%= @user.username %> </h1>
 	<%end%>
+
+	<div id="pagination">
+        <%= will_paginate(@user_articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center my-4') %>
+    </div>
 
 
 </div>

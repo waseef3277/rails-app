@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#Pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate'
 #image attachment (avatar)
 gem "paperclip", "~> 6.0.0"
 #Has Secure Password

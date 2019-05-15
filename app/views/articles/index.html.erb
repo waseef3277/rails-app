@@ -2,7 +2,9 @@
     <div>
         <%= link_to "Create New Article", new_article_path, class: "btn mt-4", id: "article_button" %>
     </div>
-
+    <div id="pagination">
+        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center my-4') %>
+    </div> 
     <% @articles.each do |article| %>
         <div class="alert my-5" id="article_panel">
             <h1 class="display-4"> <%= article.title %> </h1>
@@ -29,6 +31,9 @@
             </div>
         </div>
     <%end%>
+    <div id="pagination">
+        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center my-4') %>
+    </div> 
 </div>
 
 
