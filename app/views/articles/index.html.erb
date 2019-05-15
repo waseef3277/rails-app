@@ -7,9 +7,10 @@
         <div class="alert my-5" id="article_panel">
             <h1 class="display-4"> <%= article.title %> </h1>
             <p class="lead"> <%= truncate(article.description, length: 300) %> </p>
+            <hr>
             <div class="d-inline-block">
                 <small class="font-weight-bold"> Created by: </small>
-                <p> <%= article.user.username %> (<%= time_ago_in_words(article.created_at) %> ago)</p>
+                <p> <%= link_to article.user.username, user_path(article.user) %> (<%= time_ago_in_words(article.created_at) %> ago) </p>
             </div>
             <div class="d-inline-block mx-5">
                 <small class="font-weight-bold"> Last Updated: </small>

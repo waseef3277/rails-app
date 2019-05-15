@@ -19,6 +19,44 @@
 	border-radius: 20px;
 }
 
+#signup_form{
+	margin-top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#signup_form .col-form-label-lg{
+	padding-left: 50px;
+}
+
+#profile_photo{
+	margin-left: 400px;
+	margin-right: 400px;
+	width: 320px;
+	height: 320px;
+}
+
+#index_profile_photo{
+	margin-left: 180px;
+	margin-right: 180px;
+	width: 150px;
+	height: 150px;
+}
+
+#user_index_panel{
+	width: 550px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#user_index_panel a{
+	color: black;
+}
+
+#user_index_panel a:hover{
+	color: gray;
+}
+
 @import "bootstrap";
 @import "font-awesome";
 
@@ -65,3 +103,5 @@
 .field_with_errors .form-control{
 	border-color: #c11111;
 }
+
+

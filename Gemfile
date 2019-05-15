@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#image attachment (avatar)
+gem "paperclip", "~> 6.0.0"
 #Has Secure Password
 gem 'bcrypt', '~> 3.1.7'
 # Validates Email Format

@@ -1,7 +1,7 @@
 
-<%= form_for @article do |f| %>
-    <%= render "shared/errors" %>
+<%= render "shared/errors", obj: @article %>
 
+<%= form_for @article do |f| %>
     <div class="form-group row">
         <%= f.label :title, class: "col-sm-2 col-form-label-lg" %>
         <div class="col-sm-6">

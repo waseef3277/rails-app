@@ -1,0 +1,9 @@
+<div class="container">
+	<% @users.each do |user| %>
+		<div class="alert alert-primary my-4" id="user_index_panel">
+			<%= image_tag user.avatar.url, class: "rounded-circle", id: "index_profile_photo" %>
+			<%= link_to user.username, user_path(user), class: "nav-link text-center font-weight-bold my-2" %>
+			<p class="lead text-center"> <%= pluralize(user.articles.count, "Article") %> </p>
+		</div>
+	<% end %>
+</div>

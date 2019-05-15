@@ -6,6 +6,15 @@
 		<hr>
 		<p class="lead"> <%= @article.description %>  </p>
 
+		<div class="d-inline-block">
+            <small class="font-weight-bold"> Created by: </small>
+            <p> <%= link_to @article.user.username, user_path(@article.user) %> (<%= time_ago_in_words(@article.created_at) %> ago) </p>
+        </div>
+        <div class="d-inline-block mx-5">
+            <small class="font-weight-bold"> Last Updated: </small>
+            <p> <%= time_ago_in_words(@article.updated_at) %> ago</p>
+        </div>
+
 	</div>
 
 	<%= link_to "Back to List", articles_path, class: "btn", id: "article_button" %>
