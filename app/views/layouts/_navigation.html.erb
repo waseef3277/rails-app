@@ -22,6 +22,9 @@
         </div>
       </li>
       <%end%>
+      <li class="nav-item <%= 'active' if current_page?(users_path) %>">
+        <%= link_to "Users", users_path, class: "nav-link" %>
+      </li>
     </ul>
     <% if !logged_in %>
     <ul class="navbar-nav ml-auto">
@@ -34,6 +37,9 @@
     </ul>
     <% else %>
       <ul class="navbar-nav ml-auto">
+      <% if current_user.admin? %>
+        <li class="nav-item dropdown"> <a class="lead nav-link btn btn-dark btn-sm disabled text-white"> ADMIN </a> </li>
+      <% end %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= current_user.username %>

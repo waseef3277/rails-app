@@ -5,8 +5,11 @@
 	<% @users.each do |user| %>
 		<div class="alert my-4" id="user_index_panel">
 			<%= image_tag user.avatar.url, class: "rounded-circle", id: "index_profile_photo" %>
-			<%= link_to user.username, user_path(user), class: "nav-link text-center font-weight-bold my-2" %>
+			<%= link_to user.username, user_path(user), class: "nav-link text-center font-weight-bold my-2", id: "username_link" %>
 			<p class="lead text-center"> <%= pluralize(user.articles.count, "Article") %> </p>
+			<% if current_user.admin? %>
+			<p class="text-center"> <%= link_to "Delete User", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete #{user.username} and all of their articles"}, class: "btn btn-danger btn-sm" %>  </p>
+			<% end %>
 		</div>
 	<% end %>
 	<div id="pagination">
