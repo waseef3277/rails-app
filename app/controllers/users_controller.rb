@@ -40,7 +40,11 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		@users = User.paginate(page: params[:page], per_page: 6)
+		if params[:term]
+			@users = User.where('username Like ?', "%#{params[:term]}%").paginate(page: params[:page], per_page: 6)
+		else
+			@users = User.paginate(page: params[:page], per_page: 6)
+		end
 	end
 
 	def destroy
