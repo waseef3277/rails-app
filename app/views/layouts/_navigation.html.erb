@@ -40,7 +40,10 @@
     <% else %>
       <ul class="navbar-nav ml-auto">
       <% if current_user.admin? %>
-        <li class="nav-item dropdown"> <a class="lead nav-link btn btn-dark btn-sm disabled text-white"> ADMIN </a> </li>
+        <li class="nav-item <%= 'active' if current_page?(categories_path) %>">
+        <%= link_to "Categories Panel", categories_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item"> <a class="lead nav-link btn btn-dark btn-sm disabled text-white"> ADMIN </a> </li>
       <% end %>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

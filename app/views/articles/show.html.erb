@@ -6,14 +6,23 @@
 		<hr>
 		<p class="lead"> <%= @article.description %>  </p>
 
-		<div class="d-inline-block">
-            <small class="font-weight-bold"> Created by: </small>
-            <p> <%= link_to @article.user.username, user_path(@article.user) %> (<%= time_ago_in_words(@article.created_at) %> ago) </p>
-        </div>
-        <div class="d-inline-block mx-5">
-            <small class="font-weight-bold"> Last Updated: </small>
-            <p> <%= time_ago_in_words(@article.updated_at) %> ago</p>
-        </div>
+		<div class="row">
+			<div class="col-sm-3">
+	            <small class="font-weight-bold"> Created by: </small>
+	            <p> <%= link_to @article.user.username, user_path(@article.user) %> (<%= time_ago_in_words(@article.created_at) %> ago) </p>
+        	</div>
+	        <div class="col-sm-3">
+	            <small class="font-weight-bold"> Last Updated: </small>
+	            <p> <%= time_ago_in_words(@article.updated_at) %> ago</p>
+	        </div>
+	        <div class="col-sm-2"> </div>
+
+	        <%if @article.categories.any?%>
+	        <div class="col-sm-3">
+	        	<small class="font-weight-bold"> Category </small>
+	        	<p> <%= @article.categories.first.name %>  </p>
+	    	</div>
+	    	<%end%>
 
 	</div>
 
