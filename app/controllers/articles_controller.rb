@@ -8,10 +8,9 @@ class ArticlesController < ApplicationController
       @articles = Article.joins(:categories).where('title like ? and category_id = ?', "%#{params[:term]}%", "#{params[:category]}").paginate(page: params[:page], per_page: 5)
     elsif params[:term].blank? and params[:category].present?
       @category = Category.find(params[:category])
-      @articles = @category.articles  
+      @articles = @category.articles.paginate(page: params[:page], per_page: 5)
     elsif params[:term].present? and params[:category].blank?
       @articles = Article.where('title like ?', "%#{params[:term]}%").paginate(page: params[:page], per_page: 5)
-     # @articles = Article.where('title like ?', "%#{params[:term]}%").join().paginate(page: params[:page], per_page: 5)
     else
       @articles = Article.paginate(page: params[:page], per_page: 5)
     end
