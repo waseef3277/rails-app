@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 before_action :set_category, only: [:edit, :update, :show]
-before_action :require_user
-before_action :require_admin
+before_action :require_user, except: [:show]
+before_action :require_admin, except: [:show]
 
 
 
@@ -39,9 +39,9 @@ before_action :require_admin
 
 	def show
 		if params[:term]
-			@articles = @category.articles.where('title like ?', "%#{params[:term]}%").paginate(page: params[:page], per_page: 5)
+			@articles = @category.articles.where('title like ?', "%#{params[:term]}%").order('created_at DESC').paginate(page: params[:page], per_page: 5)
 		else
-			@articles = @category.articles.paginate(page: params[:page], per_page: 5)
+			@articles = @category.articles.order('created_at DESC').paginate(page: params[:page], per_page: 5)
 		end
 	end
 

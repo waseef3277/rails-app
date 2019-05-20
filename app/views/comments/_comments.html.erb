@@ -1,0 +1,28 @@
+<% if @comments.present? %>
+	<% @comments.each do |comment| %>
+		<div>
+			<div class="row">
+				<div class="col-sm-1">
+					<%= image_tag comment.user.avatar, class: "rounded-circle d-inline-block m-auto", id: "comment_profile_photo" %>
+				</div>
+				<div class="col-sm-11">
+					<div class="alert alert-secondary">
+						<%= link_to comment.user.username, user_path(comment.user), class: "h5 font-weight-bold", id: "username_link" %>
+						<p> <%= comment.content %> </p>
+							<h6 class="d-inline"> <%= time_ago_in_words(comment.created_at) %> ago </h6>
+							<% if comment.user == current_user || comment.article.user == current_user %>
+								<%= link_to "Delete Comment", [comment.article, comment], method: :delete, data: {confirm: "You want to delete the comment?"},
+								class: "text-danger float-right" %>
+							<%end%>
+					</div>
+				</div>
+			</div>
+		</div>
+	<%end%>
+<%else%>
+	<div>
+		<p> No Comments </p>
+	</div>
+<%end%>
+
+

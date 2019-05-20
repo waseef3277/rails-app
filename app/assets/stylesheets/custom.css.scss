@@ -55,6 +55,7 @@
 
 #username_link:hover{
 	color: gray;
+	text-decoration: none;
 }
 
 #pagination{
@@ -63,6 +64,15 @@
 
 #search_user{
 	margin-left: auto;
+}
+
+textarea#comment_area{
+	resize: none;
+}
+
+#comment_profile_photo{
+	height: 80px;
+	width: 80px;
 }
 
 @import "bootstrap";

@@ -5,14 +5,14 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:term].present? and params[:category].present?
-      @articles = Article.joins(:categories).where('title like ? and category_id = ?', "%#{params[:term]}%", "#{params[:category]}").paginate(page: params[:page], per_page: 5)
+      @articles = Article.joins(:categories).where('title like ? and category_id = ?', "%#{params[:term]}%", "#{params[:category]}").order('created_at DESC').paginate(page: params[:page], per_page: 5)
     elsif params[:term].blank? and params[:category].present?
       @category = Category.find(params[:category])
-      @articles = @category.articles.paginate(page: params[:page], per_page: 5)
+      @articles = @category.articles.order('created_at DESC').paginate(page: params[:page], per_page: 5)
     elsif params[:term].present? and params[:category].blank?
-      @articles = Article.where('title like ?', "%#{params[:term]}%").paginate(page: params[:page], per_page: 5)
+      @articles = Article.where('title like ?', "%#{params[:term]}%").order('created_at DESC').paginate(page: params[:page], per_page: 5)
     else
-      @articles = Article.paginate(page: params[:page], per_page: 5)
+      @articles = Article.order('created_at DESC').paginate(page: params[:page], per_page: 5)
     end
   end
 
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-
+    @comments = Comment.where(article_id: @article).order("created_at DESC")
   end
 
   def edit
