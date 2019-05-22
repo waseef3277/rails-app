@@ -11,9 +11,9 @@
 
     <%= form_tag(articles_path, method: :get) do %>
         <div class="row my-5">
-            <div class="col-sm-3">
+            <div class="col-sm-2 col-lg-3">
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-8 col-lg-6">
                 <div class="input-group mb-3">
                     <%= text_field_tag :term, params[:term], class: "form-control", placeholder: "Search by title"%>
                     <div class="input-group-append">
@@ -26,7 +26,7 @@
     <% end %>
 
     <div id="pagination">
-        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center my-4') %>
+        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center my-4') %>
     </div> 
     <% @articles.each do |article| %>
         <div class="alert my-5" id="article_panel">
@@ -68,7 +68,7 @@
         </div>
     <%end%>
     <div id="pagination">
-        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'justify-content-center my-4') %>
+        <%= will_paginate(@articles, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: 'pagination justify-content-center my-4') %>
     </div> 
 </div>
 

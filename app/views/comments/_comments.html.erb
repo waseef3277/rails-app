@@ -2,10 +2,10 @@
 	<% @comments.each do |comment| %>
 		<div>
 			<div class="row">
-				<div class="col-sm-1">
+				<div class="col-sm-2 col-lg-1 col-md-2">
 					<%= image_tag comment.user.avatar, class: "rounded-circle d-inline-block m-auto", id: "comment_profile_photo" %>
 				</div>
-				<div class="col-sm-11">
+				<div class="col-sm-10 col-lg-11 col-md-10">
 					<div class="alert alert-secondary">
 						<%= link_to comment.user.username, user_path(comment.user), class: "h5 font-weight-bold", id: "username_link" %>
 						<p> <%= comment.content %> </p>
